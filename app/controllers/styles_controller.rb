@@ -43,7 +43,4 @@ end
 
   def style_params
     params.require(:style).permit(:default_image, :name, :style_number, :reference, :cost, :msrp)
-
-    end)
-
   end
