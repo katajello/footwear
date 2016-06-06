@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  default_image: MyString
+  name: MyString
+  style_number: MyString
+  reference: MyString
+  cost: 1
+  msrp: 1
+
+two:
+  default_image: MyString
+  name: MyString
+  style_number: MyString
+  reference: MyString
+  cost: 1
+  msrp: 1
