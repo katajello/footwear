@@ -24,11 +24,12 @@
     </div>
     <div>
       <%= s.label :cost %>
-      <%= s.number_field :cost %>
+      <%= s.number_field :cost, :class => '', :step => 0.01 %>
+
     </div>
     <div>
       <%= s.label :msrp %>
-      <%= s.number_field :msrp %>
+      <%= s.number_field :msrp, :class => '', :step => 0.01 %>
     </div>
     <div>
       <%= s.submit %>
