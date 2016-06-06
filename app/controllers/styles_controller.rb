@@ -1,11 +1,12 @@
 class StylesController < ApplicationController
-  before_action :set_style, only: [:default_image, :name, :style_number, :reference, :cost, :msrp]
+  before_action :set_style, only: [:show, :edit, :update, :destroy]
 
   def index
     @styles = Style.all
   end
 
   def show
+
   end
 
   def new
@@ -26,7 +27,7 @@ class StylesController < ApplicationController
   end
 
   def update
-    if @style.update_variant(style_params)
+    if @style.update_attributes(style_params)
       redirect_to style_path(@style)
     else
       redirect_to edit_style_path(@style)
@@ -38,7 +39,7 @@ class StylesController < ApplicationController
 end
   private
   def set_style
-    @style = Style.find(params(:id))
+    @style = Style.find(params[:id])
   end
 
   def style_params

@@ -2,11 +2,25 @@ Rails.application.routes.draw do
 
   resources :styles
 
+  root 'styles#index'
+
+  # get '/styles' => 'styles#index'
+  #
+  # post '/styles' => 'styles#create'
+  #
+  # get '/styles/new' => 'styles#new', as: :new_style
+  #
+  # get '/styles/:id/edit' => 'styles#edit', as: :edit_style
+  #
+  # get '/styles/:id' => 'styles#show', as: :style
+  #
+  # patch '/styles/:id' => 'styles#update'
+  #
+  # delete '/styles/:id' => 'styles#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'styles#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -5,34 +5,34 @@
 <!-- render the form partial -->
 <%= form_for @style do |s| %>
     <div>
-      <%= f.label :default_image %>
-      <%= f.text_field :default_image %>
+      <%= s.label :default_image %>
+      <%= s.text_field :default_image %>
     </div>
 
     <div>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= s.label :name %>
+      <%= s.text_field :name %>
     </div>
 
     <div>
-      <%= f.label :style_number %>
-      <%= f.text_field :style_number %>
+      <%= s.label :style_number %>
+      <%= s.text_field :style_number %>
     </div>
 
     <div>
-      <%= f.label :reference %>
-      <%= f.text_field :reference %>
+      <%= s.label :reference %>
+      <%= s.text_field :reference %>
     </div>
     <div>
-      <%= f.label :cost %>
-      <%= f.number_field :cost %>
+      <%= s.label :cost %>
+      <%= s.number_field :cost %>
     </div>
     <div>
-      <%= f.label :msrp %>
-      <%= f.number_field :msrp %>
+      <%= s.label :msrp %>
+      <%= s.number_field :msrp %>
     </div>
     <div>
-      <%= f.submit %>
+      <%= s.submit %>
     </div>
     <% end %>
 
