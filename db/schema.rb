@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160606222216) do
+ActiveRecord::Schema.define(version: 20160606232204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,4 +27,16 @@ ActiveRecord::Schema.define(version: 20160606222216) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "varients", force: :cascade do |t|
+    t.string   "color"
+    t.string   "material"
+    t.string   "image"
+    t.integer  "style_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "varients", ["style_id"], name: "index_varients_on_style_id", using: :btree
+
+  add_foreign_key "varients", "styles"
 end
