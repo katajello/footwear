@@ -1,2 +1,40 @@
-<h1>Styles#edit</h1>
+<h1>Edit Style</h1>
 <p>Find me in app/views/styles/edit.html.erb</p>
+
+<!-- render the form partial -->
+<%= form_for @style do |s| %>
+    <div>
+      <%= f.label :default_image %>
+      <%= f.text_field :default_image %>
+    </div>
+
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div>
+      <%= f.label :style_number %>
+      <%= f.text_field :style_number %>
+    </div>
+
+    <div>
+      <%= f.label :reference %>
+      <%= f.text_field :reference %>
+    </div>
+    <div>
+      <%= f.label :cost %>
+      <%= f.number_field :cost %>
+    </div>
+    <div>
+      <%= f.label :msrp %>
+      <%= f.number_field :msrp %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+    <% end %>
+
+<%= link_to 'New Style', new_style_path(@style) %>
+
+<%= link_to 'Home', root_path %>
