@@ -1,2 +1,42 @@
 <h1>Styles#index</h1>
 <p>Find me in app/views/styles/index.html.erb</p>
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>Style List</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Style Number</th>
+      <th>Style Reference</th>
+      <th>Cost</th>
+      <th>MSRP</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <!-- iterate through all the vampires! -->
+    <% @styles.each do |s|%>
+      <tr>
+        <td><%= s.name %></td>
+        <td><%= s.style_number %></td>
+        <td><%= s.reference %></td>
+        <td><%= s.cost %></td>
+        <td><%= s.msrp %></td>
+        <td><%= link_to 'Style', style_path(s)%></td>
+        <td><%= link_to 'Edit', edit_style_path(s)%></td>
+        <td><%= link_to 'Delete', style_path(s), {method:"DELETE"}%><!-- add a link to delete this vampire --></td>
+      </tr>
+    <!-- end the iterator here -->
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!-- add a link to the new vampire page -->
+<%= link_to 'Create New Style', new_style_path(@style) %>
