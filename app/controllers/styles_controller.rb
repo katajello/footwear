@@ -1,3 +1,4 @@
+
 class StylesController < ApplicationController
   before_action :set_style, only: [:show, :edit, :update, :destroy]
 
@@ -43,6 +44,6 @@ class StylesController < ApplicationController
   end
 
   def style_params
-    params.require(:style).permit(:default_image, :name, :style_number, :reference, :cost, :msrp)
+    params.require(:style).permit(:avatar, :default_image, :name, :style_number, :reference, :cost, :msrp)
   end
 end

@@ -3,6 +3,8 @@
 
 <p id="notice"><%= notice %></p>
 
+<%= image_tag @style.avatar.url %>
+
 <p>
   <strong>Pic:</strong>
   <%= image_tag @style.default_image %>
@@ -41,5 +43,5 @@
 
 <%= link_to 'Edit', edit_style_path(@style) %>
 <%= link_to 'Home', root_path %>
-<%= link_to 'Edit Color', edit_varient_path(@style.varients.ids)%>
+<%#= link_to 'Edit Color', edit_varient_path(@style.varients.ids)%>
 <%= link_to 'Add Color', new_varient_path(@style.varients.ids)%>

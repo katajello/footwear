@@ -1,3 +1,4 @@
+
 class VarientsController < ApplicationController
 
   def index
@@ -13,7 +14,7 @@ class VarientsController < ApplicationController
   end
 
   def create
-    @varient = 
+    @varient =
     if @varient.save
       redirect_to varient_path(@varient)
     else

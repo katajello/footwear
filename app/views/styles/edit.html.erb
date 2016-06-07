@@ -3,6 +3,11 @@
 
 <!-- render the form partial -->
 <%= form_for @style do |s| %>
+
+    <div>
+      <%= s.label :avatar %>
+      <%= s.file_field :avatar %>
+    </div>
     <div>
       <%= s.label :default_image %>
       <%= s.text_field :default_image %>
