@@ -5,15 +5,9 @@
 <!-- render the form partial -->
 <%= form_for @style, html:{multipart: true } do |s| %>
     <div>
-      <%= s.label :avatar %>
+      <%= s.label :default_image %>
       <%= s.file_field :avatar %>
     </div>
-
-    <div>
-      <%= s.label :default_image %>
-      <%= s.text_field :default_image %>
-    </div>
-
     <div>
       <%= s.label :name %>
       <%= s.text_field :name %>

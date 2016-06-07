@@ -3,21 +3,18 @@
 
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @style.avatar.url %>
-
 <p>
-  <strong>Pic:</strong>
-  <%= image_tag @style.default_image %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @style.name %>
+  <%= image_tag @style.avatar.url %>
 </p>
 
 <p>
   <strong>Style Number:</strong>
   <%= @style.style_number %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @style.name %>
 </p>
 
 <p>
@@ -29,10 +26,12 @@
   <strong>Cost:</strong>
   <%= @style.cost%>
 </p>
+
 <p>
   <strong>MSRP:</strong>
   <%= @style.msrp%>
 </p>
+
 <% @style.varients.each do |b| %>
 	<h3><%= b.color %></h3>
 	<p><%= b.material %></p>

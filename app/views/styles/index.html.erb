@@ -9,8 +9,9 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th></th>
       <th>Style Number</th>
+      <th>Name</th>
       <th>Style Reference</th>
       <th>Cost</th>
       <th>MSRP</th>
@@ -22,8 +23,9 @@
     <!-- iterate through all the vampires! -->
     <% @styles.each do |s|%>
       <tr>
-        <td><%= s.name %></td>
+        <td><%= image_tag s.avatar.url %></td>
         <td><%= s.style_number %></td>
+        <td><%= s.name %></td>
         <td><%= s.reference %></td>
         <td><%= s.cost %></td>
         <td><%= s.msrp %></td>
