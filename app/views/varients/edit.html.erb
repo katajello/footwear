@@ -1,0 +1,18 @@
+<h1>Varients#edit</h1>
+<p>Find me in app/views/varients/edit.html.erb</p>
+
+<h1>Color and Material</h1>
+
+<%= form_for @varient do |f| %>
+	<%= f.label :color %>
+	<%= f.text_field :color %>
+
+	<%= f.label :material %>
+	<%= f.text_field :material %>
+
+	<%= f.label :image %>
+	<%= f.text_field :image %>
+
+
+	<%= f.submit %>
+<% end %>

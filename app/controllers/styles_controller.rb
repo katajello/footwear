@@ -36,7 +36,7 @@ class StylesController < ApplicationController
 
   def destroy
   end
-end
+
   private
   def set_style
     @style = Style.find(params[:id])
@@ -45,3 +45,4 @@ end
   def style_params
     params.require(:style).permit(:default_image, :name, :style_number, :reference, :cost, :msrp)
   end
+end

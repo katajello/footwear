@@ -1,6 +1,25 @@
 Rails.application.routes.draw do
 
+  resources :varients
+
+
+  # get 'varients/index'
+  #
+  # get 'varients/show'
+  #
+  # get 'varients/new'
+  #
+  # get 'varients/create'
+  #
+  # get 'varients/edit'
+  #
+  # get 'varients/update'
+  #
+  # get 'varients/destroy'
+
   resources :styles
+  # get '/styles/:id/varients/new' => 'varients#new', as: :new_varient
+
 
   root 'styles#index'
 
