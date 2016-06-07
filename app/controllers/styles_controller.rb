@@ -36,6 +36,11 @@ class StylesController < ApplicationController
   end
 
   def destroy
+    if @style.destroy
+      redirect_to root_path
+    else
+      redirect_to style_path(@style)
+    end
   end
 
   private

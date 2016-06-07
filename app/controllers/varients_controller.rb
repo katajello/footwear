@@ -14,7 +14,8 @@ class VarientsController < ApplicationController
   end
 
   def create
-    @varient =
+    @varient = Varient.new(varient_params)
+    @varient.style = current_style
     if @varient.save
       redirect_to varient_path(@varient)
     else
@@ -23,7 +24,6 @@ class VarientsController < ApplicationController
   end
 
   def edit
-      @varient = Varient.find(params[:id])
   end
 
   def update
