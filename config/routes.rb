@@ -1,39 +1,20 @@
 Rails.application.routes.draw do
 
+  delete '/logout' => 'sessions#destroy', as: :logout
+  resources :sessions, only: [:new, :create]
+
+  resources :users
+
+
   resources :varients
 
-
-  # get 'varients/index'
-  #
-  # get 'varients/show'
-  #
-  # get 'varients/new'
-  #
-  # get 'varients/create'
-  #
-  # get 'varients/edit'
-  #
-  # get 'varients/update'
-  #
-  # get 'varients/destroy'
 
   resources :styles
   # get '/styles/:id/varients/new' => 'varients#new', as: :new_varient
 
 
-  root 'styles#index'
+  root 'users#index'
 
-  # get '/styles' => 'styles#index'
-  #
-  # post '/styles' => 'styles#create'
-  #
-  # get '/styles/new' => 'styles#new', as: :new_style
-  #
-  # get '/styles/:id/edit' => 'styles#edit', as: :edit_style
-  #
-  # get '/styles/:id' => 'styles#show', as: :style
-  #
-  # patch '/styles/:id' => 'styles#update'
   #
   # delete '/styles/:id' => 'styles#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
