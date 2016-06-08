@@ -8,6 +8,11 @@ gem 'rails', '4.2.6'
 # paperclip gem for uploading paperclip
 gem "paperclip", "~> 4.3"
 
+# aws sdk
+gem 'aws-sdk', '< 2.0'
+
+gem 'dotenv-rails', :groups => [:development, :test]
+
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
