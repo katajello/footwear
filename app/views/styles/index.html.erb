@@ -1,6 +1,4 @@
-<h1>Styles#index</h1>
-<p>Find me in app/views/styles/index.html.erb</p>
-
+ 
 
 <p id="notice"><%= notice %></p>
 
@@ -20,7 +18,8 @@
   </thead>
 
   <tbody>
-    <!-- iterate through all the vampires! -->
+    <% @styles = Style.reorder(:style_number)%>
+    <!-- iterate through all the styles! -->
     <% @styles.each do |s|%>
       <tr>
         <td><%= image_tag s.avatar.url %></td>
