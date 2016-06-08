@@ -6,10 +6,16 @@ Rails.application.routes.draw do
   resources :users
 
 
-  resources :varients
+  #resources :varients
+
+  #   resources :products do
+  #     resources :comments
+  #   end
 
 
-  resources :styles
+  resources :styles do
+    resources :varients
+  end
   # get '/styles/:id/varients/new' => 'varients#new', as: :new_varient
 
 

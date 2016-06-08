@@ -3,7 +3,7 @@
 
 <h1>Color and Material</h1>
 
-<%= form_for @varient do |f| %>
+<%= form_for [@style, @varient] do |f| %>
 	<%= f.label :color %>
 	<%= f.text_field :color %>
 
