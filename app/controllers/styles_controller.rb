@@ -17,7 +17,7 @@ class StylesController < ApplicationController
   def create
     @style = Style.new(style_params)
     if @style.save
-      redirect_to root_path
+      redirect_to styles_path
     else
       render :new
     end
@@ -37,7 +37,7 @@ class StylesController < ApplicationController
 
   def destroy
     if @style.destroy
-      redirect_to root_path
+      redirect_to styles_path
     else
       redirect_to style_path(@style)
     end
