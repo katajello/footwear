@@ -61,5 +61,54 @@
 </body>
 </html>
 
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= link_to 'Style', style_path(s)%></td>
+        <td><%= link_to 'Edit', edit_style_path(s)%></td>
+        <td><%= link_to 'Delete', style_path(s), {method:"DELETE"}%><!-- add a link to delete this vampire --></td> -->
+      </tr>
+    <!-- end the iterator here -->
+      <% end %>
+  </tbody>
+
+
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Style Number</th>
+      <th>Name</th>
+      <th>Style Reference</th>
+      <th>Cost</th>
+      <th>MSRP</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @styles = Style.reorder(:style_number)%>
+    <!-- iterate through all the styles! -->
+    <% @styles.each do |s|%>
+      <tr>
+        <td><%= image_tag s.avatar.url(:thumb) %></td>
+        <td><%= s.style_number %></td>
+        <td><%= s.name %></td>
+        <td><%= s.reference %></td>
+        <td><%= s.cost %></td>
+        <td><%= s.msrp %></td>
+        <td><%= link_to 'Style', style_path(s)%></td>
+        <td><%= link_to 'Edit', edit_style_path(s)%></td>
+        <td><%= link_to 'Delete', style_path(s), {method:"DELETE"}%><!-- add a link to delete this vampire --></td>
+      </tr>
+    <!-- end the iterator here -->
+      <% end %>
+  </tbody>
+</table>
+
+</div>
+
 
 <!-- @current_user.styles.in_groups_of(#(number), false).each do |group| -->

@@ -8,23 +8,51 @@
 <h1>Style List</h1>
 <%= link_to 'Create New Style', new_style_path(@style) %>
 
-<%# @style.in_groups_of(3, false).each do |group| %>
+<% Style.all.order(:style_number).in_groups_of(3, false).each do |group| %>
 
-<!-- <div class="row"> -->
-  <%# group.each do |s|%>
-    <!-- <div class="col-md-2"> -->
-      <!-- <div class="thumbnail center"> -->
-        <%#= image_tag s.avatar.url(:thumb) %>
-      <!-- </div> -->
+<div class="row">
+  <% group.each do |s|%>
+    <div class="col-md-2">
+      <div class="thumbnail center">
+        <%= image_tag s.avatar.url(:thumb) %>
+      </div>
+    </div>
+      <div class="col-md-2">
+        <div class="row">
+          <div class="col-md-1">
+        <p>
+          <%= s.style_number %>
+        </p>
+          </div>
+          <div class="col-md-1">
+            <p>
+              <%= s.name %>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <p>
+            <%= s.reference %>
+          </p>
+        </div>
+        <div class="row">
+          <p>
+            <%= s.cost %>
+          </p>
+        </div>
+        <div class="row">
+            <p>
+              <%= s.msrp %>
+            </p>
+        </div>
+      </div>
 
-
-
-
-
-  <!-- </div>
+<% end %>
+</div>
+<% end %>
 
 </div>
-  <thead>
+  <!-- <thead>
     <tr>
       <th></th>
       <th>Style Number</th>
@@ -35,55 +63,5 @@
     </tr>
   </thead>
 
-  <tbody>
-    < iterate through all the styles! -->
-      <!-- <tr> -->
-        <!-- <td><%#= image_tag s.avatar.url(:thumb) %></td>
-        <td><%#= s.style_number %></td>
-        <td><%#= s.name %></td>
-        <td><%#= s.reference %></td>
-        <td><%#= s.cost %></td>
-        <td><%#= s.msrp %></td>
-        <td><%#= link_to 'Style', style_path(s)%></td>
-        <td><%#= link_to 'Edit', edit_style_path(s)%></td>
-        <td><%#= link_to 'Delete', style_path(s), {method:"DELETE"}%><!-- add a link to delete this vampire --></td> -->
-      <!-- </tr> -->
-    <!-- end the iterator here -->
-      <%# end %>
-  <!-- </tbody>
-</table> -->
-
-
-<table class="table table-condensed">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Style Number</th>
-      <th>Name</th>
-      <th>Style Reference</th>
-      <th>Cost</th>
-      <th>MSRP</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @styles = Style.reorder(:style_number)%>
-    <!-- iterate through all the styles! -->
-    <% @styles.each do |s|%>
-      <tr>
-        <td><%= image_tag s.avatar.url(:thumb) %></td>
-        <td><%= s.style_number %></td>
-        <td><%= s.name %></td>
-        <td><%= s.reference %></td>
-        <td><%= s.cost %></td>
-        <td><%= s.msrp %></td>
-        <td><%= link_to 'Style', style_path(s)%></td>
-        <td><%= link_to 'Edit', edit_style_path(s)%></td>
-        <td><%= link_to 'Delete', style_path(s), {method:"DELETE"}%><!-- add a link to delete this vampire --></td>
-      </tr>
-    <!-- end the iterator here -->
-      <% end %>
-  </tbody>
-</table>
-
-</div>
+  <tbody> -->
+    <!-- < iterate through all the styles! -->
