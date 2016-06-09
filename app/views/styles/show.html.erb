@@ -1,21 +1,21 @@
-<h1>Styles#show</h1>
-<p>Find me in app/views/styles/show.html.erb</p>
+<h1><%= @style.name %></h1>
+<h1><%= @style.style_number %></h1>
 
 <p id="notice"><%= notice %></p>
 
 <p>
-  <%= image_tag @style.avatar.url %>
+  <%= image_tag @style.avatar.url(:medium) %>
 </p>
-
+<!--
 <p>
   <strong>Style Number:</strong>
-  <%= @style.style_number %>
+  <%#= @style.style_number %>
 </p>
 
 <p>
   <strong>Name:</strong>
-  <%= @style.name %>
-</p>
+  <%#= @style.name %>
+</p> -->
 
 <p>
   <strong>Reference:</strong>
@@ -49,7 +49,7 @@
     <!-- <% @varients = Varient.reorder(:color) %> -->
     <% @style.varients.each do |v| %>
     <tr>
-      <td><%= image_tag v.picture.url %></td>
+      <td><%= image_tag v.picture.url(:medium) %></td>
       <td><%= v.color %></td>
       <td><%= v.material%></td>
       <td><%= link_to 'Edit', edit_style_varient_path(@style, v)%> </td>

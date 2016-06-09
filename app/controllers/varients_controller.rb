@@ -1,6 +1,6 @@
 
 class VarientsController < ApplicationController
-  before_action only: [:show, :edit, :update, :destroy]
+
   def index
     @varients = Varient.all
   end
