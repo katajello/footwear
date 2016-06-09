@@ -1,5 +1,6 @@
 
 class StylesController < ApplicationController
+  before_action :authorize
   before_action :set_style, only: [:show, :edit, :update, :destroy]
 
   def index

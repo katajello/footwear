@@ -1,6 +1,6 @@
 
 class VarientsController < ApplicationController
-
+  before_action :authorize
   def index
     @varients = Varient.all
   end
@@ -34,9 +34,9 @@ class VarientsController < ApplicationController
     @style = Style.find(params[:style_id])
     @varient = @style.varients.find(params[:id])
     if @varient.update_attributes(varient_params)
-      redirect_to style_varient_path(@style)
+      redirect_to style_path(@style)
     else
-      redirect_to edit_style_varient_path(@style)
+      redirect_to edit_style_varient_path(@style, @varient)
     end
   end
 

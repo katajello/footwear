@@ -49,7 +49,7 @@
     <!-- <% @varients = Varient.reorder(:color) %> -->
     <% @style.varients.each do |v| %>
     <tr>
-      <td><%= image_tag v.picture.url(:medium) %></td>
+      <td><%if v.picture_file_name %><%= image_tag v.picture.url(:thumb) %><% end %></td>
       <td><%= v.color %></td>
       <td><%= v.material%></td>
       <td><%= link_to 'Edit', edit_style_varient_path(@style, v)%> </td>
