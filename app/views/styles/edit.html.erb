@@ -5,7 +5,7 @@
 <%= form_for @style do |s| %>
 
     <div>
-      <%= s.label :avatar %>
+      <%= s.label :default_pic %>
       <%= s.file_field :avatar %>
     </div>
     <div>
@@ -36,4 +36,4 @@
 
 <%= link_to 'New Style', new_style_path(@style) %>
 
-<%= link_to 'Home', root_path %>
+<%= link_to 'Home', styles_path %>

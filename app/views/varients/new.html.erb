@@ -4,14 +4,16 @@
 <h1>Color and Material</h1>
 
 <%= form_for [@style, @varient] do |f| %>
+
+	<%= f.label :image %>
+	<%= f.file_field :picture %>
+
 	<%= f.label :color %>
 	<%= f.text_field :color %>
 
 	<%= f.label :material %>
 	<%= f.text_field :material %>
 
-	<%= f.label :image %>
-	<%= f.text_field :image %>
 
 
 	<%= f.submit %>

@@ -31,16 +31,34 @@
   <strong>MSRP:</strong>
   <%= @style.msrp%>
 </p>
-
-<% @style.varients.each do |b| %>
-	<h3><%= b.color %></h3>
-	<p><%= b.material %></p>
-  <p><%= b.image %></p>
-
-<% end %>
-
-
 <%= link_to 'Edit', edit_style_path(@style) %>
-<%= link_to 'Home', root_path %>
+<%= link_to 'Home', styles_path %>
 <%#= link_to 'Edit Color', edit_varient_path(@style.varients.ids)%>
 <%= link_to 'Add Color', new_style_varient_path(@style)%>
+
+<table>
+  <thread>
+    <tr>
+      <th></th>
+      <th>Color</th>
+      <th>Material</th>
+      <th colspan="3"></th>
+    </tr>
+  </thread>
+  <tbody>
+    <!-- <% @varients = Varient.reorder(:color) %> -->
+    <% @style.varients.each do |v| %>
+    <tr>
+      <td><%= image_tag v.picture.url %></td>
+      <td><%= v.color %></td>
+      <td><%= v.material%></td>
+      <td><%= link_to 'Edit', edit_style_varient_path(@style, v)%> </td>
+      <td><%= link_to 'Delete', style_varient_path(@style, v), {method:"DELETE"}%></td>
+    </tr>
+    <% end %>
+</table>
+<!-- <% @style.varients.each do |b| %>
+	<p><%= b.color %></p>
+	<p><%= b.material %></p>
+  <p><%= b.image %></p>
+<% end %> -->
