@@ -55,7 +55,9 @@ Users can log in and add desired styles with cost and MSRP and then even add mul
 
 **Check Out The App**
 
-[https://tranquil-tor-22942.herokuapp.com/styles]()
+[Link to App](https://tranquil-tor-22942.herokuapp.com)
+
+
 
 
 
