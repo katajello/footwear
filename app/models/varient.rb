@@ -8,7 +8,7 @@ class Varient < ActiveRecord::Base
 has_attached_file :picture,
                   :storage => :s3,
                   :s3_protocol => 'https',
-                  styles: { medium: "100x100>", thumb: "50x50>" },
+                  styles: { medium: "200>", thumb: "93>" },
                   default_url: "/images/:style/missing.png",
                   url: ":s3_domain_url",
                   path: "/:class/:attachment/:id_partition/:style/:filename",

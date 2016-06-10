@@ -17,63 +17,57 @@
   </head>
   <body>
 
-<div class = "row">
-  <div class = "col-md-2">
-    <p>
-      image
-    </p>
-  </div>
-  <div class = "col-md-2">
-    <div class="row">
-      <div class="col-md-1">
-    <p>
-      box a
-    </p>
-      </div>
-      <div class="col-md-1">
-        <p>
-          box b
-        </p>
+
+
+
+<h1>Style List</h1>
+<%= link_to 'Create New Style', new_style_path(@style) %>
+
+<% Style.all.order(:style_number).in_groups_of(3, false).each do |group| %>
+
+<div class="row">
+  <% group.each do |s|%>
+    <div class="col-md-2">
+      <div class="thumbnail center">
+        <%= image_tag s.avatar.url(:thumb) %>
       </div>
     </div>
-    <div class="row">
-      <p>
-        box c
-      </p>
-    </div>
-    <div class="row">
-      <p>
-        box d
-      </p>
-    </div>
-    <div class="row">
-        <p>
-          box e
-        </p>
-    </div>
+      <div class="col-md-2">
+        <div class="row">
+          <!-- <div class="col-md-1"> -->
+            <p class="left">
+              <%= s.style_number %>
+            </p>
+          <!-- </div> -->
+          <!-- <div class="col-md-1"> -->
+            <p class="right">
+              <%= s.name %>
+            </p>
+          <!-- </div> -->
+        </div>
+        <div class="row">
+          <p>
+            <%= s.reference %>
+          </p>
+        </div>
+        <div class="row">
+          <p>
+            <%= s.cost %>
+          </p>
+        </div>
+        <div class="row">
+            <p>
+              <%= s.msrp %>
+            </p>
+        </div>
+      </div>
+
+<% end %>
+</div>
+<% end %>
 
 
-    </div>
-
-  </div>
-
-
-</body>
-</html>
-
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><%= link_to 'Style', style_path(s)%></td>
-        <td><%= link_to 'Edit', edit_style_path(s)%></td>
-        <td><%= link_to 'Delete', style_path(s), {method:"DELETE"}%><!-- add a link to delete this vampire --></td> -->
-      </tr>
-    <!-- end the iterator here -->
-      <% end %>
-  </tbody>
-
+<!-- list model -->
 
 
 <table class="table table-condensed">
@@ -107,8 +101,59 @@
       <% end %>
   </tbody>
 </table>
-
+</div>
 </div>
 
 
-<!-- @current_user.styles.in_groups_of(#(number), false).each do |group| -->
+
+
+<!-- grid model  -->
+
+<h1>Style List</h1>
+<%= link_to 'Create New Style', new_style_path(@style) %>
+
+<% Style.all.order(:style_number).in_groups_of(3, false).each do |group| %>
+
+<div class="row grid">
+  <% group.each do |s|%>
+    <div class="col-md-2 grid" >
+      <div class="thumbnail center">
+        <%= image_tag s.avatar.url(:thumb) %>
+      </div>
+    </div>
+      <div class="col-md-2 grid">
+        <div class="row grid">
+          <!-- <div class="col-md-1"> -->
+            <p class="left grid">
+              <%= s.style_number %>
+            </p>
+          <!-- </div> -->
+          <!-- <div class="col-md-1"> -->
+            <p class="right grid">
+              <%= s.name %>
+            </p>
+          <!-- </div> -->
+        </div>
+        <div class="row grid">
+          <p>
+            Reference:
+            <%= s.reference %>
+          </p>
+        </div>
+        <div class="row grid">
+          <p>
+            Cost:
+            <%= s.cost %>
+          </p>
+        </div>
+        <div class="row grid">
+            <p>
+              MSRP:
+              <%= s.msrp %>
+            </p>
+        </div>
+      </div>
+
+<% end %>
+</div>
+<% end %>

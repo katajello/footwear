@@ -1,57 +1,36 @@
-
-
 <p id="notice"><%= notice %></p>
 
 <div class="container">
 
-  <table class="table table-condensed">
-    <thead>
-      <tr>
-        <th></th>
-        <th>Style Number</th>
-        <th>Name</th>
-        <th>Style Reference</th>
-        <th>Cost</th>
-        <th>MSRP</th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <% @styles = Style.reorder(:style_number)%>
-      <!-- iterate through all the styles! -->
-      <% @styles.each do |s|%>
-        <tr>
-          <td><%= image_tag s.avatar.url(:thumb) %></td>
-          <td><%= s.style_number %></td>
-          <td><%= s.name %></td>
-          <td><%= s.reference %></td>
-          <td><%= s.cost %></td>
-          <td><%= s.msrp %></td>
-          <td><%= link_to 'Style', style_path(s)%></td>
-          <td><%= link_to 'Edit', edit_style_path(s)%></td>
-          <td><%= link_to 'Delete', style_path(s), {method:"DELETE"}%><!-- add a link to delete this vampire --></td>
-        </tr>
-      <!-- end the iterator here -->
-        <% end %>
-    </tbody>
-  </table>
 
+  <h1>Style List</h1>
+  <%= link_to 'Create New Style', new_style_path(@style) %>
+
+  <% Style.all.order(:style_number).in_groups_of(3, false).each do |group| %>
+
+  <div class="row">
+    <% group.each do |s|%>
+    <div class="col-md-4 col-sm-2">
+    <div class="grid">
+    <div class="row">
+      <div class="col-md-4 picture"><%= image_tag s.avatar.url(:thumb) %></div>
+      <div class="col-md-4 left"><%= s.style_number %></div>
+      <div class="col-md-4 right"><%= s.name %></div>
+      <div class="col-md-4 left">Reference: </div>
+      <div class="col-md-4 right"><%= s.reference %></div>
+      <div class="col-md-4 left">Cost:</div>
+      <div class="col-md-4 right">$<%= s.cost %></div>
+      <div class="col-md-4 left">MSRP:</div>
+      <div class="col-md-4 right">$<%= s.msrp %></div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-sm-2 links">
+        <%= link_to 'Style', style_path(s)%> | <%= link_to 'Edit', edit_style_path(s)%> | <%= link_to 'Delete', style_path(s), {method:"DELETE"}%></div>
+    </div>
+    </div>
+    </div>
+    <% end %>
   </div>
-
-
-
-
+<% end %>
 </div>
-  <!-- <thead>
-    <tr>
-      <th></th>
-      <th>Style Number</th>
-      <th>Name</th>
-      <th>Style Reference</th>
-      <th>Cost</th>
-      <th>MSRP</th>
-    </tr>
-  </thead>
-
-  <tbody> -->
-    <!-- < iterate through all the styles! -->
