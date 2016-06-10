@@ -29,3 +29,9 @@
   text-align: center;
   font-size: 32px;
 }
+
+@media (min-width: @screen-xs-min) {
+  body {
+    min-width: 1000px;
+  }
+}

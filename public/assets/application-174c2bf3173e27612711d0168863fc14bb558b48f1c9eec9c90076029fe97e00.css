@@ -1,0 +1,87 @@
+/* line 12, /Users/KatieO/GA_workspace/w06/project2/footwear_line/app/assets/stylesheets/styles.scss */
+.picture {
+  height: 93px;
+  margin-top: 7px;
+}
+
+/* line 16, /Users/KatieO/GA_workspace/w06/project2/footwear_line/app/assets/stylesheets/styles.scss */
+.picture2 {
+  height: 193px;
+  margin-top: 7px;
+}
+
+/* line 20, /Users/KatieO/GA_workspace/w06/project2/footwear_line/app/assets/stylesheets/styles.scss */
+.left {
+  text-align: right;
+}
+
+/* line 23, /Users/KatieO/GA_workspace/w06/project2/footwear_line/app/assets/stylesheets/styles.scss */
+.right {
+  text-align: left;
+}
+
+/* line 26, /Users/KatieO/GA_workspace/w06/project2/footwear_line/app/assets/stylesheets/styles.scss */
+.grid {
+  border-radius: 10px;
+  border: 1px solid gray;
+  margin-bottom: 10px;
+}
+
+/* line 31, /Users/KatieO/GA_workspace/w06/project2/footwear_line/app/assets/stylesheets/styles.scss */
+.links {
+  margin-left: 3px;
+  white-space: nowrap;
+}
+
+/* line 35, /Users/KatieO/GA_workspace/w06/project2/footwear_line/app/assets/stylesheets/styles.scss */
+h1 {
+  text-align: center;
+}
+
+/* line 38, /Users/KatieO/GA_workspace/w06/project2/footwear_line/app/assets/stylesheets/styles.scss */
+p {
+  text-align: center;
+}
+
+/* line 41, /Users/KatieO/GA_workspace/w06/project2/footwear_line/app/assets/stylesheets/styles.scss */
+.center2 {
+  text-align: center;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+
+
+ .logo {
+  margin-top: -10px;
+  height: 40px;
+ }
+
+.container {
+    text-align: center;
+
+}
+.center {
+  text-align: center;
+  font-size: 32px;
+}
+
+@media (min-width: @screen-xs-min) {
+  body {
+    min-width: 1000px;
+  }
+}
