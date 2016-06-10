@@ -1,39 +1,56 @@
-<h1>Edit Style</h1>
-<p>Find me in app/views/styles/edit.html.erb</p>
 
-<!-- render the form partial -->
-<%= form_for @style do |s| %>
+<%= form_for @style, :html => {class: 'edit_style form-horizontal'} do |f| %>
+    <div class="container">
+      <div class="row"><legend class="col-md-4 col-md-offset-4">Edit Style</legend></div>
+      <fieldset>
+          <div class="form-group">
+              <%= f.label :default_image, 'Default Image*', class: 'col-md-4 control-label' %>
+              <div class="col-md-5">
+                  <%= f.file_field :avatar, class: 'form-control' %>
+              </div>
+          </div>
+          <div class="form-group">
+              <%= f.label :style_number, 'Style Number*', class: 'col-md-4 control-label' %>
+              <div class="col-md-5">
+                  <%= f.text_field :style_number, class: 'form-control' %>
+              </div>
+          </div>
+          <div class="form-group">
+              <%= f.label :name, 'Name*', class: 'col-md-4 control-label' %>
+              <div class="col-md-5">
+                  <%= f.text_field :name, class: 'form-control' %>
+              </div>
+          </div>
+          <div class="form-group">
+              <%= f.label :reference, 'Reference*', class: 'col-md-4 control-label' %>
+              <div class="col-md-5">
+                  <%= f.text_field :reference, class: 'form-control' %>
+              </div>
+          </div>
+          <div class="form-group">
+              <%= f.label :cost, 'Cost*', class: 'col-md-4 control-label' %>
+              <div class="col-md-5">
+                  <%= f.number_field :cost, class: 'form-control' %>
+              </div>
+          </div>
+          <div class="form-group">
+              <%= f.label :msrp, 'MSRP*', class: 'col-md-4 control-label' %>
+              <div class="col-md-5">
+                  <%= f.number_field :msrp, class: 'form-control' %>
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="col-md-8 col-md-offset-4">
+                  <%= f.submit 'Edit Style', class: 'btn btn-success' %>
+              </div>
+          </div>
+        </div>
 
-    <div>
-      <%= s.label :default_pic %>
-      <%= s.file_field :avatar %>
-    </div>
-    <div>
-      <%= s.label :style_number %>
-      <%= s.text_field :style_number %>
-    </div>
-    <div>
-      <%= s.label :name %>
-      <%= s.text_field :name %>
-    </div>
-    <div>
-      <%= s.label :reference %>
-      <%= s.text_field :reference %>
-    </div>
-    <div>
-      <%= s.label :cost %>
-      <%= s.number_field :cost, :class => '', :step => 0.01 %>
+    </fieldset>
 
-    </div>
-    <div>
-      <%= s.label :msrp %>
-      <%= s.number_field :msrp, :class => '', :step => 0.01 %>
-    </div>
-    <div>
-      <%= s.submit %>
-    </div>
-    <% end %>
 
-<%= link_to 'New Style', new_style_path(@style) %>
-
-<%= link_to 'Home', styles_path %>
+<% end %>
+<div class="center">
+<%= link_to 'New Style', new_style_path(@style) %> |
+<%= link_to 'Cancel', styles_path %>
+</div>

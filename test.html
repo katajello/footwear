@@ -15,145 +15,79 @@
 
     <title></title>
   </head>
+
+
+  <!-- style for show style with varients -->
   <body>
-
-
-
-
-<h1>Style List</h1>
-<%= link_to 'Create New Style', new_style_path(@style) %>
-
-<% Style.all.order(:style_number).in_groups_of(3, false).each do |group| %>
-
-<div class="row">
-  <% group.each do |s|%>
-    <div class="col-md-2">
-      <div class="thumbnail center">
-        <%= image_tag s.avatar.url(:thumb) %>
+    <div class="container">
+      <h1>Style List</h1>
+      <div class="row">
+        <div class="col-md-4 col-sm-2">
+        <div class="grid">
+        <div class="row">
+          <div class="col-md-4 picture">  <%= image_tag @style.avatar.url(:medium) %></div>
+          <div class="col-md-4"><%= @style.style_number %></div>
+          <div class="col-md-4"><%= @style.name %></div>
+          <div class="col-md-4">Reference: </div>
+          <div class="col-md-4"><%= @style.reference %></div>
+          <div class="col-md-4">Cost:</div>
+          <div class="col-md-4">$<%= @style.cost%></div>
+          <div class="col-md-4">MSRP:</div>
+          <div class="col-md-4">$<%= @style.msrp%></div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-2 links">
+          </div>
+        </div>
+        </div>
+        </div>
       </div>
     </div>
-      <div class="col-md-2">
-        <div class="row">
-          <!-- <div class="col-md-1"> -->
-            <p class="left">
-              <%= s.style_number %>
-            </p>
-          <!-- </div> -->
-          <!-- <div class="col-md-1"> -->
-            <p class="right">
-              <%= s.name %>
-            </p>
-          <!-- </div> -->
-        </div>
-        <div class="row">
-          <p>
-            <%= s.reference %>
-          </p>
-        </div>
-        <div class="row">
-          <p>
-            <%= s.cost %>
-          </p>
-        </div>
-        <div class="row">
-            <p>
-              <%= s.msrp %>
-            </p>
-        </div>
+
+
+
+
+    <% @style.varients.all.order(:color).in_groups_of(3, false).each do |group| %>
+
+    <div class="row">
+      <% group.each do |v|%>
+      <div class="col-md-4 col-sm-2">
+      <div class="grid">
+      <div class="row">
+        <div class="col-md-4 picture"><%if v.picture_file_name %><%= image_tag v.picture.url(:medium) %><% end %></div>
+        <div class="col-md-4 left">Color</div>
+        <div class="col-md-4 right">Material</div>
+        <div class="col-md-4 left"><%= v.color %></div>
+        <div class="col-md-4 right"><%= v.material%></div>
+        <div class="col-md-4 left"><%= link_to 'Edit', edit_style_varient_path(@style, v)%> </div>
+        <div class="col-md-4 right"><%= link_to 'Delete', style_varient_path(@style, v), {method:"DELETE"}%></div>
       </div>
-
-<% end %>
-</div>
-<% end %>
-
-
-<!-- list model -->
-
-
-<table class="table table-condensed">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Style Number</th>
-      <th>Name</th>
-      <th>Style Reference</th>
-      <th>Cost</th>
-      <th>MSRP</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @styles = Style.reorder(:style_number)%>
-    <!-- iterate through all the styles! -->
-    <% @styles.each do |s|%>
-      <tr>
-        <td><%= image_tag s.avatar.url(:thumb) %></td>
-        <td><%= s.style_number %></td>
-        <td><%= s.name %></td>
-        <td><%= s.reference %></td>
-        <td><%= s.cost %></td>
-        <td><%= s.msrp %></td>
-        <td><%= link_to 'Style', style_path(s)%></td>
-        <td><%= link_to 'Edit', edit_style_path(s)%></td>
-        <td><%= link_to 'Delete', style_path(s), {method:"DELETE"}%><!-- add a link to delete this vampire --></td>
-      </tr>
-    <!-- end the iterator here -->
+      </div>
+      </div>
       <% end %>
-  </tbody>
-</table>
-</div>
-</div>
-
-
-
-
-<!-- grid model  -->
-
-<h1>Style List</h1>
-<%= link_to 'Create New Style', new_style_path(@style) %>
-
-<% Style.all.order(:style_number).in_groups_of(3, false).each do |group| %>
-
-<div class="row grid">
-  <% group.each do |s|%>
-    <div class="col-md-2 grid" >
-      <div class="thumbnail center">
-        <%= image_tag s.avatar.url(:thumb) %>
-      </div>
     </div>
-      <div class="col-md-2 grid">
-        <div class="row grid">
-          <!-- <div class="col-md-1"> -->
-            <p class="left grid">
-              <%= s.style_number %>
-            </p>
-          <!-- </div> -->
-          <!-- <div class="col-md-1"> -->
-            <p class="right grid">
-              <%= s.name %>
-            </p>
-          <!-- </div> -->
-        </div>
-        <div class="row grid">
-          <p>
-            Reference:
-            <%= s.reference %>
-          </p>
-        </div>
-        <div class="row grid">
-          <p>
-            Cost:
-            <%= s.cost %>
-          </p>
-        </div>
-        <div class="row grid">
-            <p>
-              MSRP:
-              <%= s.msrp %>
-            </p>
-        </div>
-      </div>
+  <% end %>
 
-<% end %>
-</div>
-<% end %>
+
+
+  <table class="center-table">
+    <thread>
+      <tr>
+        <th></th>
+        <th>Color</th>
+        <th>Material</th>
+        <th colspan="3"></th>
+      </tr>
+    </thread>
+    <tbody>
+      <!-- <% @varients = Varient.reorder(:color) %> -->
+      <% @style.varients.each do |v| %>
+      <tr>
+        <td><%if v.picture_file_name %><%= image_tag v.picture.url(:medium) %><% end %></td>
+        <td><%= v.color %></td>
+        <td><%= v.material%></td>
+        <td><%= link_to 'Edit', edit_style_varient_path(@style, v)%> </td>
+        <td><%= link_to 'Delete', style_varient_path(@style, v), {method:"DELETE"}%></td>
+      </tr>
+      <% end %>
+  </table>
