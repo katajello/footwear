@@ -8,9 +8,9 @@
 
 <div class="center">
 
-<%= link_to 'Edit', edit_style_path(@style) %> |
-<%= link_to 'Home', styles_path %> |
-<%= link_to 'Add Color', new_style_varient_path(@style)%>
+<%= link_to 'Edit', edit_style_path(@style), class: 'btn btn-sm btn-primary' %> 
+<%= link_to 'Style', styles_path, class: 'btn btn-sm btn-info' %>
+<%= link_to 'Add Color', new_style_varient_path(@style), class: 'btn btn-sm btn-success' %>
 </div>
 <% @style.varients.all.order(:color).in_groups_of(3, false).each do |group| %>
 
@@ -26,8 +26,8 @@
     <div class="col-md-6 left"><%= v.material%></div>
   </div>
   <div class="row center2">
-    <div class="col-md-6"><%= link_to 'Edit', edit_style_varient_path(@style, v)%> </div>
-    <div class="col-md-6"><%= link_to 'Delete', style_varient_path(@style, v), {method:"DELETE"}%></div>
+    <div class="col-md-6"><%= link_to 'Edit', edit_style_varient_path(@style, v), class: 'btn btn-sm btn-primary' %> </div>
+    <div class="col-md-6"><%= link_to 'Delete', style_varient_path(@style, v), {method:"DELETE", class: 'btn btn-sm btn-danger'}%></div>
   </div>
   </div>
   </div>

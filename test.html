@@ -91,3 +91,49 @@
       </tr>
       <% end %>
   </table>
+
+
+
+
+
+
+
+<!--  -->
+
+
+  <p id="notice"><%= notice %></p>
+
+  <div class="container">
+
+
+
+    <h1>Style List</h1>
+    <%= link_to 'Create New Style', new_style_path(@style) %>
+
+    <% Style.all.order(:style_number).in_groups_of(3, false).each do |group| %>
+
+    <div class="row">
+      <% group.each do |s|%>
+      <div class="col-sm-4">
+      <div class="grid">
+      <div class="row">
+        <div class="col-xs-4 picture"><%= image_tag s.avatar.url(:thumb) %></div>
+        <div class="col-xs-4 left"><%= s.style_number %></div>
+        <div class="col-xs-4 right"><%= s.name %></div>
+        <div class="col-xs-4 left">Reference: </div>
+        <div class="col-xs-4 right"><%= s.reference %></div>
+        <div class="col-xs-4 left">Cost:</div>
+        <div class="col-xs-4 right">$<%= s.cost %></div>
+        <div class="col-xs-4 left">MSRP:</div>
+        <div class="col-xs-4 right">$<%= s.msrp %></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 links">
+          <%= link_to 'Style', style_path(s)%> | <%= link_to 'Edit', edit_style_path(s)%> | <%= link_to 'Delete', style_path(s), {method:"DELETE"}%></div>
+      </div>
+      </div>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
