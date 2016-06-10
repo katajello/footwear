@@ -1,32 +1,37 @@
 
 
-<h1>Color and Material</h1>
 <div class="container">
 
+	<%= form_for [@style, @varient], :html => {class: 'new_style form-horizontal'} do |f| %>
+	    <div class="container">
+	      <div class="row"><legend class="col-md-4 col-md-offset-4">Color And Material</legend></div>
+	      <fieldset>
+	          <div class="form-group">
+	              <%= f.label :picture, 'Image', class: 'col-md-4 control-label' %>
+	              <div class="col-md-5">
+	                  <%= f.file_field :picture, class: 'form-control' %>
+	              </div>
+	          </div>
+	          <div class="form-group">
+	              <%= f.label :color, 'Color', class: 'col-md-4 control-label' %>
+	              <div class="col-md-5">
+	                  <%= f.text_field :color, class: 'form-control' %>
+	              </div>
+	          </div>
+	          <div class="form-group">
+	              <%= f.label :material, 'Material', class: 'col-md-4 control-label' %>
+	              <div class="col-md-5">
+	                  <%= f.text_field :material, class: 'form-control' %>
+	              </div>
+	          </div>
+	          <div class="form-group">
+	              <div class="col-md-8 col-md-offset-4">
+	                  <%= f.submit 'Edit Style', class: 'btn btn-success' %>
+										<%= link_to 'Cancel', style_path(@style), class: 'btn btn-default' %>
+	              </div>
+	          </div>
+	        </div>
 
-<%= form_for [@style, @varient] do |f| %>
-  <div class="form-group">
-		<%= f.label :image, class: 'col-md-4 control-label'%>
-		<div class="col-md-5">
-		<%= f.file_field :picture, class: "form-control" %>
-	</div>
-	</div>
-	<div class="form-group">
-		<%= f.label :color, class: 'col-md-4 control-label' %>
-		<div class="col-md-5">
-		<%= f.text_field :color, class: "form-control" %>
-		</div>
-	</div>
-	<div class="form-group">
-		<%= f.label :material, class: 'col-md-4 control-label' %>
-		<div class="col-md-5">
-		<%= f.text_field :material,  class: "form-control" %>
-		</div>
-	</div>
-
-<div class="col-md-8 col-md-offset-4">
-	<button type="submit" class="btn btn-default">Add Color</button>
+	    </fieldset>
+	<% end %>
 </div>
-<% end %>
-</div>
-<%= link_to 'Cancel', style_path(@style)%>
